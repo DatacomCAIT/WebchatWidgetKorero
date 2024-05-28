@@ -1,0 +1,5 @@
+/*!
+ * speech-output.webchat-plugin.js v2.60.0
+ * https://github.com/Cognigy/WebchatWidget/tree/v2.60.0
+ * https://github.com/Cognigy/WebchatWidget/tree/v2.60.0/OSS_LICENSES.txt
+ */(()=>{var e={780:e=>{if(!window.__COGNIGY_WEBCHAT)throw new Error("Cognigy Webchat v2.7 or higher has to be loaded before this plugin");e.exports=window.__COGNIGY_WEBCHAT.React}},t={};function n(s){var o=t[s];if(void 0!==o)return o.exports;var r=t[s]={exports:{}};return e[s](r,r.exports,n),r.exports}(()=>{"use strict";var e=n(780);const t=new Set,s=e=>{if(t.has(e.message.traceId))return null;if(t.add(e.message.traceId),!speechSynthesis)return null;if(!e.config.settings.enableTTS)return null;const n=e.message.text,s=new SpeechSynthesisUtterance;return s.text=n,speechSynthesis.speak(s),null};var o;o={match:({text:e,source:t})=>"bot"===t||"engagement"===t&&!!e,component:e.memo(s),options:{passthrough:!0,fullwidth:!0}},window&&(window.cognigyWebchatMessagePlugins=[...window.cognigyWebchatMessagePlugins||[],o],console.log("added cognigy message plugin"))})()})();
